@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+100.times do 
+    Profile.create([{ name: Faker::Creature::Dog.name, match: true, image: 'https://placedog.net/640/480?random'}])
+end
