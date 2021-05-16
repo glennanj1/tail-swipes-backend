@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   def index
     @profiles = Profile.all
 
-    render json: @profiles
+    render json: ProfileSerializer.new(@profiles)
   end
 
   # GET /profiles/1

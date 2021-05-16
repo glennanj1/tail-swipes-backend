@@ -1,3 +1,4 @@
-class ProfileSerializer < ActiveModel::Serializer
-  attributes :id, :name, :match, :image
+class ProfileSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :name, :match, :image
 end
