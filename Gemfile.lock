@@ -77,6 +77,8 @@ GEM
     erubi (1.10.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.15.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -98,6 +100,8 @@ GEM
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
+    nokogiri (1.11.3-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.11.3-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
@@ -156,6 +160,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
@@ -164,6 +169,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   faker (~> 2.17)
+  fast_jsonapi
   jwt (~> 2.2)
   listen (~> 3.3)
   pg (~> 1.1)
