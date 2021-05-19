@@ -1,3 +1,4 @@
-class MessageSerializer < ActiveModel::Serializer
-  attributes :id, :name, :message, :active, :image
+class MessageSerializer
+  include FastJsonapi::ObjectSerializer
+  attributes :name, :message, :active, :image
 end
