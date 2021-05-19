@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all
 
-    render json: @messages
+    render json: MessageSerializer.new(@messages)
   end
 
   # GET /messages/1
