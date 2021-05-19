@@ -8,6 +8,6 @@
 
 Profile.destroy_all 
 
-100.times do 
+50.times do 
     Profile.create([{ name: Faker::Creature::Dog.name, match: true, image: "https://placedog.net/640/480/?id=#{rand(1..200)}"}])
 end
