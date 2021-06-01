@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1
   def show
-    render json: @message
+    render json: MessageSerizlizer.new(@message)
   end
 
   # POST /messages
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
 
     if @message.save
-      render json: @message, status: :created, location: @message
+      render json: MessageSerializer.new(@message), status: :created, location: @message
     else
       render json: @message.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:name, :message, :active, :image)
+      params.require(:message).permit(:name, :message, :active, :image, :profile_id)
     end
 end
