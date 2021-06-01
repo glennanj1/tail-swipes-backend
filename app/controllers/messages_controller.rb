@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/1
   def show
-    render json: MessageSerizlizer.new(@message)
+    render json: MessageSerializer.new(@message)
   end
 
   # POST /messages
