@@ -3,9 +3,10 @@ class ConversationsController < ApplicationController
 
   # GET /conversations
   def index
+
     @conversations = Conversation.all
 
-    render json: @conversations
+    render json: ConversationSerializer.new(@conversations)
   end
 
   # GET /conversations/1
@@ -15,10 +16,13 @@ class ConversationsController < ApplicationController
 
   # POST /conversations
   def create
+
+    binding.pry
+  
     @conversation = Conversation.new(conversation_params)
 
     if @conversation.save
-      render json: @conversation, status: :created, location: @conversation
+      render json: ConversationSerializer.new(@conversation), status: :created, location: @conversation
     else
       render json: @conversation.errors, status: :unprocessable_entity
     end
@@ -46,6 +50,6 @@ class ConversationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def conversation_params
-      params.require(:conversation).permit(:image, :chat, :message_id)
+      params.require(:conversation).permit(:image, :chat, :name, :message_id)
     end
 end
