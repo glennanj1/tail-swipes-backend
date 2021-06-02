@@ -3,8 +3,8 @@ class ConversationsController < ApplicationController
 
   # GET /conversations
   def index
-
-    @conversations = Conversation.all
+    @message = Message.find(params[:message_id])
+    @conversations = @message.conversations
 
     render json: ConversationSerializer.new(@conversations)
   end
@@ -16,13 +16,11 @@ class ConversationsController < ApplicationController
 
   # POST /conversations
   def create
-
-    binding.pry
-  
+    
     @conversation = Conversation.new(conversation_params)
 
     if @conversation.save
-      render json: ConversationSerializer.new(@conversation), status: :created, location: @conversation
+      render json: ConversationSerializer.new(@conversation), status: :created
     else
       render json: @conversation.errors, status: :unprocessable_entity
     end
