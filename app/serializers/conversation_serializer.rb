@@ -1,5 +1,4 @@
-class ConversationSerializer < ActiveModel::Serializer
+class ConversationSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :id, :image, :chat
-  has_one :message
+  attributes :image, :chat, :name, :message_id
 end
