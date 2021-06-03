@@ -15,9 +15,13 @@ class MessagesController < ApplicationController
 
   # POST /messages
   def create
-    @message = Message.new(message_params)
 
+    @message = Message.new(message_params)
+   
     if @message.save
+      new_message = @message.convo_builder
+      new_message.save
+      
       render json: MessageSerializer.new(@message), status: :created
     else
       render json: @message.errors, status: :unprocessable_entity
