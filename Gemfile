@@ -4,8 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.3'
 
 gem 'fast_jsonapi'
-gem 'httparty', '~> 0.13.7'
 gem 'pry'
+gem 'dotenv', '~> 2.1', '>= 2.1.1'
+gem 'httparty', '~> 0.18.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
