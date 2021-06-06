@@ -3,14 +3,15 @@ class PlacesController < ApplicationController
 
   # GET /places
   def index
+
     @places = Place.all
 
-    render json: @places
+    render json: PlaceSerializer.new(@places)
   end
 
   # GET /places/1
   def show
-    render json: @place
+    render json: PlaceSerializer.new(@place)
   end
 
   # POST /places
@@ -41,11 +42,12 @@ class PlacesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_place
-      @place = Place.find(params[:id])
+      place = Place.get_place(params[:id])
+      @place = Place.find_by(zip: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def place_params
-      params.require(:place).permit(:address, :name, :hours, :open_now, :ref, :photos, :photo_reference)
+      params.require(:place).permit(:zip)
     end
 end
