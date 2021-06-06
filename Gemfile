@@ -5,7 +5,7 @@ ruby '2.7.3'
 
 gem 'fast_jsonapi'
 gem 'pry'
-gem 'dotenv', '~> 2.1', '>= 2.1.1'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'httparty', '~> 0.18.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
