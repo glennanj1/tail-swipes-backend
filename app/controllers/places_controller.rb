@@ -3,7 +3,6 @@ class PlacesController < ApplicationController
 
   # GET /places
   def index
-
     @places = Place.all
 
     render json: PlaceSerializer.new(@places)
