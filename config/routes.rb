@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :places
   resources :messages do 
     resources :conversations
   end
