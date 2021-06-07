@@ -1,5 +1,7 @@
 class Place < ApplicationRecord
 
+    validates :name, uniqueness: true
+
     def self.get_place(zip)
         location = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{zip}&key=#{ENV['GOOGLE']}")
         @cords = location['results'][0]['geometry']['location'].each do |x,y|
